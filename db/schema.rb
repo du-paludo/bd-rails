@@ -10,7 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_06_142648) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_200814) do
+  create_table "clientes", force: :cascade do |t|
+    t.string "cpf"
+    t.string "nome"
+    t.string "sobrenome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "enderecos", force: :cascade do |t|
+    t.string "logradouro"
+    t.string "cep"
+    t.integer "cliente_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cliente_id"], name: "index_enderecos_on_cliente_id"
+  end
+
+  create_table "pedidos", force: :cascade do |t|
+    t.string "codigo"
+    t.integer "cliente_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cliente_id"], name: "index_pedidos_on_cliente_id"
+  end
+
+  create_table "produtos", force: :cascade do |t|
+    t.string "nome"
+    t.float "preco"
+    t.integer "estoque"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -19,8 +52,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_142648) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "enderecos", "clientes"
+  add_foreign_key "pedidos", "clientes"
 end
