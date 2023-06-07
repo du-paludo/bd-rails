@@ -2,14 +2,15 @@
 
 <main>
     <body>
-        <h1>pedidos</h1>
+        <h1>Pedidos</h1>
+        <br>
         <div id="pedidos">
             <% @pedidos.each do |pedido| %>
-                <%= render pedido %>
-                <p><%= link_to "Ver esse pedido", pedido %></p>
+                <p><b>Código:</b> <%= pedido.codigo %><br>
+                <%= link_to "Exibir pedido", pedido %></p>
+                <br>
             <% end %>
         </div>
-
-        <%= link_to "Novo pedido", new_pedido_path %>
+        <p><%= link_to "Voltar para início", root_path %> | <%= link_to "Novo pedido", new_pedido_path %></p>
     </body>
 </main>

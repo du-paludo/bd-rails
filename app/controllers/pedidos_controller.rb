@@ -21,7 +21,12 @@ class PedidosController < ApplicationController
 
   # POST /pedidos or /pedidos.json
   def create
-    @pedido = Pedido.new(pedido_params)
+    # @pedido = Pedido.new(pedido_params)
+    puts pedido_params
+    @cliente = Cliente.find_by(cpf: pedido_params[:cliente_id])
+ 
+    @pedido = Pedido.new(codigo: pedido_params[:codigo])
+    @pedido.cliente = @cliente
 
     respond_to do |format|
       if @pedido.save

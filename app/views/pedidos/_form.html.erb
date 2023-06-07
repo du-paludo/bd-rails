@@ -12,7 +12,7 @@
   <% end %>
 
   <div>
-    <%= form.label :codigo, style: "display: block" %>
+    <%= form.label "Código", style: "display: block" %>
     <%= form.text_field :codigo %>
   </div>
 
@@ -21,7 +21,8 @@
     <%= form.text_field :cliente_id %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+    <br>
+        <%= form.submit "Salvar pedido", class: "button" %>
+
+    <%= form.collection_check_boxes :produto_ids, Produto.order(:nome), :id, :nome %>
 <% end %>

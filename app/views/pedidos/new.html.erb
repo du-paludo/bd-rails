@@ -2,12 +2,10 @@
 
 <body>    
     <main>
-        <h1>New pedido</h1>
+        <h1>Novo pedido</h1>
         <%= render "form", pedido: @pedido %>
         <br>
 
-        <div>
-        <%= link_to "Voltar para pedidos", pedidos_path %>
-        </div>
+        <p><%= link_to "Voltar para pedidos", pedidos_path %></p>
     </main>
 </body>
