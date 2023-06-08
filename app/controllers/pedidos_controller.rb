@@ -21,12 +21,10 @@ class PedidosController < ApplicationController
 
   # POST /pedidos or /pedidos.json
   def create
-    # @pedido = Pedido.new(pedido_params)
-    puts pedido_params
-    @cliente = Cliente.find_by(cpf: pedido_params[:cliente_id])
- 
-    @pedido = Pedido.new(codigo: pedido_params[:codigo])
-    @pedido.cliente = @cliente
+    # pedido_params[:produto_ids].reject!(&:blank?)
+    @pedido = Pedido.new
+    @pedido.codigo = pedido_params[:codigo]
+    @pedido.cliente = Cliente.find_by(cpf: pedido_params[:cliente_id])
 
     respond_to do |format|
       if @pedido.save
@@ -35,7 +33,15 @@ class PedidosController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @pedido.errors, status: :unprocessable_entity }
+        return
       end
+    end
+
+    pedido_params[:produto_ids].each do |produto_id|
+        produto = Produto.find_by(id: produto_id)
+        if produto != nil
+            @pedido.produtos << produto
+        end
     end
   end
 
@@ -70,6 +76,6 @@ class PedidosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pedido_params
-      params.require(:pedido).permit(:codigo, :cliente_id)
+      params.require(:pedido).permit(:codigo, :cliente_id, :produto_ids => [])
     end
 end

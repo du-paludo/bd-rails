@@ -1,11 +1,16 @@
 <div id="<%= dom_id pedido %>">
-  <p>
-    <strong>Código:</strong>
-    <%= pedido.codigo %>
-  </p>
+    <p>
+        <strong>Código:</strong>
+        <%= pedido.codigo %>
+    </p>
 
-  <p>
-    <strong>Cliente:</strong>
-    <%= pedido.cliente.cpf %>
-  </p>
+    <p>
+        <strong>Cliente:</strong>
+        <%= pedido.cliente.cpf %>
+    </p>
+
+     <p>
+        <strong>Produtos:</strong>
+        <%= pedido.produtos.map(&:nome).join(", ") %>
+    </p>
 </div>

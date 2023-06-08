@@ -1,28 +1,37 @@
 <%= form_with(model: pedido) do |form| %>
-  <% if pedido.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+    <% if pedido.errors.any? %>
+        <div style="color: red">
+        <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
 
-      <ul>
-        <% pedido.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <ul>
+            <% pedido.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
 
-  <div>
-    <%= form.label "Código", style: "display: block" %>
-    <%= form.text_field :codigo %>
-  </div>
+        <div>
+            <%= form.label "Código", style: "display: block" %>
+            <%= form.text_field :codigo %>
+        </div>
 
-  <div>
-    <%= form.label :cliente_id, style: "display: block" %>
-    <%= form.text_field :cliente_id %>
-  </div>
+        <div>
+            <%= form.label :cliente_id, style: "display: block" %>
+            <%= form.text_field :cliente_id %>
+        </div>
 
-    <br>
-        <%= form.submit "Salvar pedido", class: "button" %>
+        <div>
+            <%= form.label :produtos, style: "display: block" %>
+            <!-- <%= collection_check_boxes(:pedido, :produto_ids, Produto.all, :id, :nome) %> -->
+            <%= form.collection_check_boxes :produto_ids, Produto.where.not(id: nil).order(:nome), :id, :nome do |b| %>
+                <div class="collection-check-box">
+                    <%= b.check_box %>
+                    <%= b.label %>
+                </div>
+            <% end %>
+        </div>
 
-    <%= form.collection_check_boxes :produto_ids, Produto.order(:nome), :id, :nome %>
-<% end %>
+        <br>
+            <%= form.submit "Salvar pedido", class: "button" %>
+    <% end %>
