@@ -8,7 +8,7 @@ class Cliente < ApplicationRecord
     validates :nome, :sobrenome, length: { maximum: 50, message: "deve conter no máximo 50 caracteres" }
     validates :nome, :sobrenome, format: { with: /\A[a-zA-ZÀ-ÖØ-öø-ÿ ]+\z/, message: "deve conter apenas letras" }
 
-    has_one :endereco
+    has_one :endereco, dependent: :destroy
     accepts_nested_attributes_for :endereco
-    has_many :pedidos
+    has_many :pedidos, dependent: :destroy
 end

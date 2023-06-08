@@ -1,11 +1,31 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  logradouro: MyString
-  cep: MyString
-  cliente: one
+# one:
+#   logradouro: MyString
+#   cep: MyString
+#   cliente: one
 
-two:
-  logradouro: MyString
-  cep: MyString
-  cliente: two
+# two:
+#   logradouro: MyString
+#   cep: MyString
+#   cliente: two
+
+logradouro_presence:
+    logradouro: ""
+    cep: "12345678"
+    cliente_id: 1
+
+cep_presence:
+    logradouro: "Avenida das Flores"
+    cep: ""
+    cliente_id: 2
+
+cep_numericality:
+    logradouro: "Rua Floriano Peixoto, nº 224"
+    cep: "182abc38"
+    cliente_id: 3
+
+cep_length:
+    logradouro: "Avenida dos Tomates, nº 1190"
+    cep: "1234"
+    cliente_id: 4

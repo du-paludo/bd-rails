@@ -1,9 +1,19 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  codigo: MyString
-  cliente: one
+    codigo: "1234"
+    cliente_id: 1
 
-two:
-  codigo: MyString
-  cliente: two
+codigo_presence:
+    codigo:
+    cliente_id: 1
+
+codigo_uniqueness:
+    codigo: "1234"
+    cliente_id: 1
+  
+codigo_length:
+    codigo: "12"
+    cliente_id: 1
+
+codigo_numericality:
+    codigo: "12ab"
+    cliente_id: 1

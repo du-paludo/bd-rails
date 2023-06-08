@@ -9,3 +9,28 @@ two:
   nome: MyString
   preco: 1.5
   estoque: 1
+
+nome_presence:
+    nome:
+    estoque: 2
+    preco: 3.99
+
+preco_presence:
+    nome: "Veneno"
+    estoque: 4
+    preco:
+
+estoque_numericality:
+    nome: "Abacate"
+    estoque: 3a
+    preco: 8.99
+
+nome_uniqueness:
+    nome: "Abacate"
+    estoque: 4
+    preco: 6.99
+
+preco_numericality:
+    nome: "Batata"
+    estoque: 8
+    preco: 8b

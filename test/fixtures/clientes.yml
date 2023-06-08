@@ -1,11 +1,93 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# one:
+#   cpf: MyString
+#   nome: MyString
+#   sobrenome: MyString
+
+# two:
+#   cpf: MyString
+#   nome: MyString
+#   sobrenome: MyString
+
 one:
-  cpf: MyString
-  nome: MyString
-  sobrenome: MyString
+    id: 1
+    cpf: "28215750095"
+    nome: "Esther"
+    sobrenome: "Roberta"
 
 two:
-  cpf: MyString
-  nome: MyString
-  sobrenome: MyString
+    id: 2
+    cpf: "92893829121"
+    nome: "Joana"
+    sobrenome: "Luck"
+
+three:
+    id: 3
+    cpf: "33565750095"
+    nome: "Matheus"
+    sobrenome: "Silva"
+
+four:
+    id: 4
+    cpf: "07199839324"
+    nome: "Vanessa"
+    sobrenome: "Lopes"
+
+cpf_presence:
+    id: 5
+    cpf:
+    nome: "Eduardo"
+    sobrenome: "Pereira"
+
+nome_presence:
+    id: 6
+    cpf: "92394942845"
+    nome:
+    sobrenome: "Pereira"
+
+sobrenome_presence:
+    id: 7
+    cpf: "14147393624"
+    nome: "Eduardo"
+    sobrenome:
+
+cpf_numericality:
+    id: 8
+    cpf: "123456abcde"
+    nome: "Eduardo"
+    sobrenome: "Pereira"
+
+cpf_length:
+    id: 9
+    cpf: "123456"
+    nome: "Eduardo"
+    sobrenome: "Pereira"
+
+cpf_uniqueness:
+    id: 10
+    cpf: "92893829121"
+    nome: "Eduardo"
+    sobrenome: "Pereira"
+
+nome_length:
+    id: 11
+    cpf: "99423824284"
+    nome: "A"
+    sobrenome: "Pereira"
+
+sobrenome_length:
+    id: 12
+    cpf: "10200336223"
+    nome: "A"
+    sobrenome: "Pereira"
+
+nome_format:
+    cpf: "43474743882"
+    nome: "Edu4rdo"
+    sobrenome: "Pereira"
+
+sobrenome_format:
+    cpf: "12727711124"
+    nome: "Eduardo"
+    sobrenome: "Pereir4"
