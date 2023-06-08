@@ -5,9 +5,13 @@
         <p style="color: green"><%= notice %></p>
         <%= render @pedido %>
         <p>
-            <%= link_to "Voltar para pedidos", pedidos_path %> |
-            <%= link_to "Editar pedido", edit_pedido_path(@pedido) %>
+            <%= link_to "Voltar para pedidos", pedidos_path %>
+            <% if current_user.admin? %>
+                | <%= link_to "Editar pedido", edit_pedido_path(@pedido) %>
+            <% end %>
         </p>
+         <% if current_user.admin? %>
             <p><%= button_to "Excluir pedido", @pedido, method: :delete, form_class: "button" %></p>
+        <% end %>
     </main>
 </body>

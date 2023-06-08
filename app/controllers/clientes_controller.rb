@@ -14,6 +14,7 @@ class ClientesController < ApplicationController
   # GET /clientes/new
   def new
     @cliente = Cliente.new
+    @cliente.build_endereco
   end
 
   # GET /clientes/1/edit
@@ -23,6 +24,21 @@ class ClientesController < ApplicationController
   # POST /clientes or /clientes.json
   def create
     @cliente = Cliente.new(cliente_params)
+
+    # @endereco = Endereco.new
+    # @endereco.logradouro = params[:logradouro]
+    # @endereco.cep = params[:cep]
+    # Endereco.create(@endereco)
+    # respond_to do |format|
+    #     if @endereco.save
+    #       format.html { redirect_to endereco_url(@endereco), notice: "Endereco was successfully created." }
+    #       format.json { render :show, status: :created, location: @cliente }
+    #     else
+    #       format.html { render :new, status: :unprocessable_entity }
+    #       format.json { render json: @cliente.errors, status: :unprocessable_entity }
+    #     end
+    #   end
+    # @cliente.endereco = @endereco.id
 
     respond_to do |format|
       if @cliente.save
@@ -66,7 +82,7 @@ class ClientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cliente_params
-      params.require(:cliente).permit(:cpf, :nome, :sobrenome)
+      params.require(:cliente).permit(:cpf, :nome, :sobrenome, endereco_attributes: [:logradouro, :cep])
     end
 
     def check_admin

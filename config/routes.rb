@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     # root "devise/sessions#new"
     #root :to => "devise/sessions#new"
 
-    get '/users', to: 'users#index'
+    # get '/users', to: 'users#index'
 end

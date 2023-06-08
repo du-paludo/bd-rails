@@ -5,9 +5,13 @@
         <p style="color: green"><%= notice %></p>
         <%= render @cliente %>
         <p>
-            <%= link_to "Voltar para clientes", clientes_path %> |
-            <%= link_to "Editar cliente", edit_cliente_path(@cliente) %>
+            <%= link_to "Voltar para clientes", clientes_path %>
+            <% if current_user.admin? %>
+                | <%= link_to "Editar cliente", edit_cliente_path(@cliente) %>
+            <% end %>
         </p>
+         <% if current_user.admin? %>
             <p><%= button_to "Excluir cliente", @cliente, method: :delete, form_class: "button" %></p>
+        <% end %>
     </main>
 </body>

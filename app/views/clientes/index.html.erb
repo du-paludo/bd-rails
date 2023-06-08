@@ -11,6 +11,9 @@
                 <br>
             <% end %>
         </div>
-        <p><%= link_to "Voltar para início", root_path %> | <%= link_to "Novo cliente", new_cliente_path %></p>
+        <p><%= link_to "Voltar para início", root_path %> 
+        <% if current_user.admin? %>
+        | <%= link_to "Novo cliente", new_cliente_path %>
+        <% end %></p>
     </body>
 </main>

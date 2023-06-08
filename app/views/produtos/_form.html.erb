@@ -26,7 +26,17 @@
     <%= form.number_field :estoque %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+    <div>
+        <%= form.label :pedidos, style: "display: block" %>
+        <!-- <%= collection_check_boxes(:pedido, :produto_ids, Produto.all, :id, :nome) %> -->
+        <%= form.collection_check_boxes :pedido_ids, Pedido.where.not(id: nil).order(:codigo), :id, :codigo do |b| %>
+            <div class="collection-check-box">
+                <%= b.check_box %>
+                <%= b.label %>
+            </div>
+      <% end %>
+    </div>
+
+     <br>
+    <%= form.submit "Salvar pedido", class: "button" %>
 <% end %>

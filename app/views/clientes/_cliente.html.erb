@@ -17,4 +17,16 @@
         <strong>Sobrenome:</strong>
         <%= cliente.sobrenome %>
     </p>
+
+    <% if (cliente.endereco != nil) %>
+    <p>
+        <strong>Logradouro:</strong>
+        <%= cliente.endereco.logradouro %>
+    </p>
+
+    <p>
+        <strong>CEP:</strong>
+        <%= cliente.endereco.cep || "" %>
+    </p>
+    <% end %>
 </div>

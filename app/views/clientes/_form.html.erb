@@ -25,7 +25,28 @@
         <%= form.text_field :sobrenome %>
     </div>
 
+    <!-- <div>
+        <%= form.label :logradouro, style: "display: block" %>
+        <%= form.text_field :logradouro %>
+    </div>
+
+    <div>
+        <%= form.label :cep, "CEP", style: "display: block" %>
+        <%= form.text_field :cep %>
+    </div> -->
+
+    <%= form.fields_for :endereco do |endereco_form| %>
+        <div>
+            <%= endereco_form.label :logradouro, style: "display: block" %>
+            <%= endereco_form.text_field :logradouro %>
+        </div>
+        <div>
+            <%= endereco_form.label :cep, "CEP", style: "display: block" %>
+            <%= endereco_form.text_field :cep %>
+        </div>
+    <% end %>
+
     <br>
 
-    <%= form.submit "Criar cliente", class: "button" %>
+    <%= form.submit "Salvar cliente", class: "button" %>
 <% end %>

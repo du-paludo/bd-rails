@@ -9,5 +9,6 @@ class Cliente < ApplicationRecord
     validates :nome, :sobrenome, format: { with: /\A[a-zA-ZÀ-ÖØ-öø-ÿ ]+\z/, message: "deve conter apenas letras" }
 
     has_one :endereco
+    accepts_nested_attributes_for :endereco
     has_many :pedidos
 end
