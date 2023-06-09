@@ -11,7 +11,7 @@
             <% end %>
         </p>
         <% if current_user.admin? %>
-            <p><%= button_to "Excluir produto", @produto, method: :delete, form_class: "button" %></p>
+            <p><div class="delete_button"><%= button_to "Excluir produto", @produto, method: :delete, form_class: "button",  data: { confirm: 'Você tem certeza que deseja deletar essa entrada?' } %></div></p>
         <% end %>
     </main>
 </body>
