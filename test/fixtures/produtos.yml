@@ -29,8 +29,3 @@ nome_uniqueness:
     nome: "Abacate"
     estoque: 4
     preco: 6.99
-
-preco_numericality:
-    nome: "Batata"
-    estoque: 8
-    preco: 8b
