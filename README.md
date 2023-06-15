@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Para fazer login no sistema como administrador, utilize as seguintes credenciais:
+E-mail: admin@example.com
+Senha: 123456
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Para fazer login como usuário, crie uma conta ou faça login com as seguintes credenciais:
+E-mail: user@example.com
+Senha: 123456
