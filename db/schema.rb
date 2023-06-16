@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_210140) do
   create_table "pedidos_produtos", id: false, force: :cascade do |t|
     t.integer "pedido_id", null: false
     t.integer "produto_id", null: false
+    t.index ["pedido_id", "produto_id"], name: "index_pedidos_produtos_on_pedido_id_and_produto_id"
   end
 
   create_table "produtos", force: :cascade do |t|
@@ -57,11 +58,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_210140) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "enderecos", "clientes"
-  add_foreign_key "pedidos", "clientes"
+  add_foreign_key "enderecos", "clientes", on_delete: :cascade
+  add_foreign_key "enderecos", "clientes", on_delete: :cascade
+  add_foreign_key "pedidos", "clientes", on_delete: :cascade
 end
