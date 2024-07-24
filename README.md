@@ -1,11 +1,11 @@
-# README
+# Ruby on Rails database
 
-Para fazer login no sistema como administrador, utilize as seguintes credenciais:
-E-mail: admin@example.com
-Senha: 123456
+This repository implements a simple database using the Ruby on Rails framework.
 
-Para fazer login como usuário, crie uma conta ou faça login com as seguintes credenciais:
-E-mail: user@example.com
-Senha: 123456
+To login in the system as administrator, use the following credentials:
+- **E-mail:** admin@example.com
+- **Password:** 123456
 
-Quando for requisitado um cliente, insira o CPF dele para identificá-lo.
+To login as an user, create an account or login with the following credentials:
+- **E-mail:** user@example.com
+- **Password:** 123456
